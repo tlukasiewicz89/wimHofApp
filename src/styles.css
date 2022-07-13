@@ -32,7 +32,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     font-size: 3rem;
-    height: 120px;
+    height: 60px;
 
 }
 
@@ -40,11 +40,11 @@ h1 {
     border: 1px solid white;
     padding: 10px 20px;
     width: 70%;
-    font-size: 2rem;
+    font-size: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 120px;
+    height: 60px;
     gap: 20px;
 }
 
@@ -79,7 +79,7 @@ h1 {
     align-items: center;
     justify-content: center;
     font-size: 3rem;
-    height: 120px;
+    height: 60px;
 }
 /* #circleContainer {
     width: 150px;

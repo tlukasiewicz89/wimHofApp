@@ -1,0 +1,9 @@
+DONE save all static numbers in file as variable to customize demo 
+
+DONE create a loop to reset all states to start again
+
+add description box
+
+create login page
+
+create backend

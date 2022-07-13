@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const BreathCounter = ({breathNumber, setBreathNumber, phase, setPhase, circleOn, setBreathingState}) => {
+const BreathCounter = ({breathNumber, setBreathNumber, phase, setPhase, circleOn, setBreathingState, goalBreaths}) => {
     // function play() {
     //     console.log('started play file')
     //     var audio = new Audio(huya);
@@ -9,26 +9,28 @@ const BreathCounter = ({breathNumber, setBreathNumber, phase, setPhase, circleOn
     // let audio = new Audio(huya);
       
     useEffect(() => {
-        console.log(breathNumber)
+        console.log('breathNumber from useEffects:', breathNumber)
 
-        if (breathNumber < 3 && !circleOn) {
+        if (breathNumber < goalBreaths && !circleOn) {
             console.log('breath in')
             setBreathingState('Breath In')    
         }else {
-            if (breathNumber === 3) {
+            if (breathNumber === goalBreaths) {
                 setBreathingState('Fully Out ') 
+                console.log('Fully')
             } else {
                 setBreathingState('Breath Out') 
+                console.log('breath out')
                 //delete later
                 // circleOn === 'tiny' ? style.tiny: circleOn ? style.big : style.small
-                if(!circleOn){
-                    console.log('started playing', audio.play())
-                }
+                // if(!circleOn){
+                //     console.log('started playing', audio.play())
+                // }
                 
             }
-            console.log('breath out')
             
-        if (breathNumber === 3 && phase === 1) {
+            
+        if (breathNumber === goalBreaths && phase === 1) {
             setTimeout(()=>{
                 setBreathingState('Hold')
                 setPhase(2);
@@ -45,7 +47,7 @@ const BreathCounter = ({breathNumber, setBreathNumber, phase, setPhase, circleOn
         <div id='breathCounter'>
             <div>Breaths: </div>
             <div>{breathNumber}</div>
-            <div>/ 30</div>
+            <div>/ {goalBreaths}</div>
         </div>
     )
 

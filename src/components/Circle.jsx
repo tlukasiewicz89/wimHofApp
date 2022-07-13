@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-const Circle = ({ circleOn, setCircleOn, breathNumber, phase}) => {
+const Circle = ({ circleOn, setCircleOn, breathNumber, phase, goalBreaths}) => {
     const style = {
         tiny: {
             background: 'blue',
@@ -33,11 +33,11 @@ const Circle = ({ circleOn, setCircleOn, breathNumber, phase}) => {
             let interval = null;
             console.log('circleOn', circleOn)
             let time = (circleOn) ? 2000 : 1500;
-            if (breathNumber <= 2) {
+            if (breathNumber <= goalBreaths -1 ) {
                 interval = setInterval(()=>{
                     setCircleOn(!circleOn);
                 }, time)
-            } else if (breathNumber === 3) {
+            } else if (breathNumber === goalBreaths) {
                 setCircleOn('tiny');
             }else {
                 clearInterval(interval);
