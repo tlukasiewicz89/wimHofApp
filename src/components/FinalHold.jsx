@@ -30,10 +30,9 @@ const FinalHold = ({ setCircleOn, circleOn, countDown, setCountDown, setBreathin
     const pressSpace = useCallback(event => {
         if (event.code === 'Space') {
             console.log('Space pressed from final hold');
-            //reset back to original when clicked feature
-        // brgin States: countDown: 10 breathingState: Breath Out time: 0 timerOn: true circleOn: false phase: 1 round: 1 breathNumber: 0 savedTimes: []    
-        //Final States: countDown: 0 breathingState: Breath Out time: 3260 timerOn: false circleOn: true phase: 3 round: 1 breathNumber: 2 savedTimes: 1
-        console.log('savedTimes in final hold on space ', savedTimes)
+          
+            console.log('savedTimes in final hold on space ', savedTimes)
+            
             setCountDown(goalHold);
             setTime(0);
             setTimeOn(true);

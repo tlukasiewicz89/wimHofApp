@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useEffect } from 'react';
 
-const Timer = ({ time, setTime, timerOn, setTimeOn, setPhase, setCircleOn, setBreathingState, phase, setSavedTimes, savedTimes, round }) => {
+const Timer = ({ time, setTime, timerOn, setTimeOn, setPhase, setCircleOn, setBreathingState, phase, setSavedTimes, savedTimes, round, breathIn }) => {
     // const [time, setTime] = useState(0);
     // const [timerOn, setTimeOn] = useState(false);
     useEffect(() => {
@@ -36,7 +36,7 @@ const Timer = ({ time, setTime, timerOn, setTimeOn, setPhase, setCircleOn, setBr
                 let minutes = ("0" + Math.floor((time / 60000) % 60)).slice(-2).toString();
                 let seconds = ("0" + Math.floor((time / 1000) % 60)).slice(-2).toString();
                 let milliseconds = ("0" + ((time / 10) % 100)).slice(-2).toString();
-                let timeFormat = `Round ${round}   ${minutes}:${seconds}:${milliseconds}`
+                let timeFormat = `Round ${round} - ${minutes}:${seconds}:${milliseconds}`
 
                 setSavedTimes(oldArr => [...oldArr, timeFormat]);
 
@@ -48,7 +48,7 @@ const Timer = ({ time, setTime, timerOn, setTimeOn, setPhase, setCircleOn, setBr
                     setPhase(3)
                     setBreathingState('Hold')
                   
-              }, 1500)
+                }, breathIn)
               }
           }
     })

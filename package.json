@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --hot --color\" \"nodemon ./server/server.js\"",
-    "start": "node server/server.js",
+    "dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --hot --color --open\" \"nodemon ./server/server.js\"",
+    "start": "node server/server.js --open",
     "build": "webpack"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tlukasiewicz89/wimHofApp.git"
   },
+  "proxy": "http://localhost:3000",
   "keywords": [],
   "author": "Thomas Lukasiewicz",
   "license": "ISC",
@@ -43,6 +44,7 @@
     "mongoose": "^6.4.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-fetch": "^0.0.9",
     "react-router-dom": "^6.3.0",
     "style-loader": "^3.3.1",
     "url-loader": "^4.1.1",

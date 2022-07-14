@@ -1,26 +1,26 @@
 import React, { useEffect } from 'react';
 
-const Circle = ({ circleOn, setCircleOn, breathNumber, phase, goalBreaths}) => {
+const Circle = ({ circleOn, setCircleOn, breathNumber, phase, goalBreaths, breathIn, breathOut, fullyOut}) => {
     const style = {
         tiny: {
-            background: 'blue',
+            background: '#0369777e',
             // boxShadow: '5px 5px 5px #04bd57',
-            transition: '3, transform 3s',
-            transform: 'scale(.2)',
+            transition: `${fullyOut/1000}s, transform ${fullyOut/1000}s`,
+            transform: 'scale(.15)',
             transitionTimingFunction: 'ease-out'
         },
         small: {
-            background: 'blue',
+            background: '#0343773d',
             // boxShadow: '5px 5px 5px #04bd57',
-            transition: '1.5s, transform 1.5s',
+            transition: `${breathIn/1000}s, transform ${breathIn/1000}s`,
             transform: 'scale(1)',
             transitionTimingFunction: 'ease-in'
         },
         big : {
-            background: 'green',
+            background: '#0369777e',
             // boxShadow: '5px 5px 5px #3085d6',
-            transition: '2s, transform 2s',
-            transform: 'scale(.5)',
+            transition: `${breathOut/1000}s, transform ${breathOut/1000}s`,
+            transform: 'scale(.4)',
             transitionTimingFunction: 'ease-out'
         }
     }
@@ -32,7 +32,7 @@ const Circle = ({ circleOn, setCircleOn, breathNumber, phase, goalBreaths}) => {
         if (phase === 1) {
             let interval = null;
             console.log('circleOn', circleOn)
-            let time = (circleOn) ? 2000 : 1500;
+            let time = (circleOn) ? breathOut : breathIn;
             if (breathNumber <= goalBreaths -1 ) {
                 interval = setInterval(()=>{
                     setCircleOn(!circleOn);

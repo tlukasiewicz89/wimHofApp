@@ -12,28 +12,39 @@ module.exports = {
         // Enable importing JS / JSX files without specifying their extension
         extensions: ['.js', '.jsx'],
     },
+    // devServer: {
+    //     host: 'localhost',
+    //     port: 8080,
+    //     // match the output path
+    //     static: {
+    //       directory: path.resolve(__dirname, 'dist'),
+    //       // match the output 'publicPath'
+    //       publicPath: '/',
+    //     },
+    //     // enable HMR on the devServer
+    //     hot: true,
+    //     // fallback to root for other urls
+    //     historyApiFallback: true,
+    //     headers: { 'Access-Control-Allow-Origin': '*' },
+    //     proxy: {
+    //       '*': {
+    //         target: 'http://localhost:3000/',
+    //         secure: false,
+    //         changeOrigin: true
+    //       },
+    //     },
+    //   },
     devServer: {
-        host: 'localhost',
-        port: 8080,
-        // match the output path
-        static: {
-          directory: path.resolve(__dirname, 'dist'),
-          // match the output 'publicPath'
-          publicPath: '/',
-        },
-        // enable HMR on the devServer
-        hot: true,
-        // fallback to root for other urls
-        historyApiFallback: true,
-        headers: { 'Access-Control-Allow-Origin': '*' },
-        proxy: {
-          '*': {
-            target: 'http://localhost:3000/',
-            secure: false,
-            changeOrigin: true
-          },
-        },
+      static: {
+          directory: path.join(__dirname, 'build'),
       },
+      proxy: {
+        '*': 'http://localhost:3000'
+      },
+      // proxy: 'http://localhost:3000',
+      compress: true,
+      port: 8080,
+    },
     module: {
     rules: [
         {

@@ -1,43 +1,94 @@
 const path = require('path');
 const express = require('express');
-const app = express();
-const PORT = 3000;
+const storage = require('../storage.js');
+
 const mongoose = require('mongoose');
 require('dotenv').config();
-const {User, bcrypt, SALT_WORK_FACTOR} = require('../models/userModel');
+const User = require('../models/userModel')
 
-console.log()
+const app = express();
+const PORT = 3000;
 mongoose.connect(process.env.MONGO_URI);
 app.use(express.json());
 
 
+// console.log('file is running')
+// console.log('storage object is', storage)
+// app.get('/', express.static(path.resolve(__dirname, '../signup.html')));
 
-app.get('/', (req, res) => {
-    return res.sendFile(path.join(__dirname, './index.html'))
+// app.get("/api", (req, res) => {
+//   console.log('api page activated')
+//   res.json({ message: "Hello from server!" });
+// });
+
+// app.get("/", (req, res) => {
+//   console.log('homepage activated')
+//   res.json({ message: "Hello from HomePage!" })
+// })
+app.post("/createUser", (req, res) => {
+  console.log('/userCreator fetch started in server')
+  
+  if (req.body) {
+    [username, password] = req.body;
+    console.log('un', username, 'pw', password)
+    //check if username exists
+    if (storage[username]) {
+      console.log('username already taken')
+      return res.status(200).json('sorry')
+    }
+
+  }
+  return res.status(200).json('hello')
+  
 })
 
 
-app.post('/signup', 
-async(req, res, next)=>{
-  const { username, password } = req.body
-  console.log(req.body);
-  const hashed = await bcrypt.hash(password, SALT_WORK_FACTOR);
-  // hash the password with bcrypt
-  // insert it into the database
-  try {
-    const result = await User.create({username: username, password: hashed});
-    return next();
+app.post("/user", (req, res) => {
+  // if (req.body) {
+  //   [username, password] = req.body;
+  //   if (username)
+  //   console.log('un', username, 'pw', password)
+  //   console.log("storage ", storage)
+  //   if (storage[username][password]) {
+  //     console.log("user found")
+  //     return res.json("hello");
+  //   } else res.json('sorry')
+  // } 
+  // return
+  console.log('/user fetch started in server')
+  
+  if (req.body) {
+    [username, password] = req.body;
+    console.log('un', username, 'pw', password)
+    //check if username exists
+    if (storage[username]) {
+      console.log('correct username')
+      if(storage[username][password]){
+        console.log('correct login')
+        return res.status(200).json('hello')
+      } 
+    }
+
   }
-  catch (err) {
-    console.log("error", err);
-  }
-},
-(req, res) => {  
-  console.log('finished creating user')
-  res.status(201).send({})
-  // return res.sendFile(path.resolve(__dirname, './signup.html'))
-  // console.log('req.body', req.body)
+  return res.status(200).json('sorry')
 })
+
+
+
+
+// app.get("/App", (req, res) => {
+//   console.log('App page activated')
+//   res.json({ message: "Hello from App!" })
+// })
+
+// app.get("/SignUp", (req, res) => {
+//   console.log('SignUp page activated')
+//   res.json({ message: "Hello from SignUp!" })
+// })
+// app.post('/signup', (req,res) => {
+//   console.log('started signup???')
+//   console.log(req.body)
+// })
 
 
 

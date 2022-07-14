@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const BreathCounter = ({breathNumber, setBreathNumber, phase, setPhase, circleOn, setBreathingState, goalBreaths}) => {
+const BreathCounter = ({breathNumber, setBreathNumber, phase, setPhase, circleOn, setBreathingState, goalBreaths, fullyOut}) => {
     // function play() {
     //     console.log('started play file')
     //     var audio = new Audio(huya);
@@ -34,7 +34,7 @@ const BreathCounter = ({breathNumber, setBreathNumber, phase, setPhase, circleOn
             setTimeout(()=>{
                 setBreathingState('Hold')
                 setPhase(2);
-            }, 2000);
+            }, fullyOut);
         }    
         }
         if (!circleOn) {
