@@ -8,10 +8,33 @@ import FinalHold from './components/FinalHold'
 import StartButton from './components/StartButton'
 import Description from './components/Description'
 
-    
-const App = ({ username, password }) => {
-    
+ 
+
+const App = ({ username, password, userData, setUserData }) => {
+    // useEffect(()=>{
+    //     fetch('/newUser', {
+    //         method: 'POST',
+    //         headers: {
+    //           'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify([username, password])
+    //       })
+    //       .then(response => response.json())
+    //       .then(data => {
+    //         console.log('data from starting APP fetch', data)
+    //       })   
+    //   }, [])
     // Dynamic Variables
+    useEffect(() => {
+        console.log('started APP, here is the data from login:', userData);
+        const timestamp = Date.now()
+        const humanReadableDateTime = new Date(timestamp).toLocaleString()
+        console.log('humanReadableDateTime', humanReadableDateTime)
+
+        const date = new Date(timestamp);
+        console.log('date', date);
+        console.log(typeof date.toLocaleDateString('en-US'));
+    }, [])
     const goalBreaths = 5;
     const goalHold = 5;
     const breathIn = 2000;
@@ -29,20 +52,16 @@ const App = ({ username, password }) => {
     const [round, setRound] = useState(1);
     const [breathNumber, setBreathNumber] = useState(0);
     const [savedTimes, setSavedTimes] = useState([])
+    
     const description = [
         'Press the spacebar to begin breathing!',
         'Breathe fully in and let go. On the last breath, breath fully out',
         'Hold for as long as you can.\n Press the spacebar to inhale and hold.',
         `Hold for ${goalHold} seconds.\nLet go and enjoy the oxygen tingles. \n
         Press Space for next round. \n
-        Press Esc to reset.`
+        Press Return to record session.`
     ];
-
-    //quick grabity grab of user previous data
-    useEffect(()=> {
-        console.log('i am a fetch request to grab user savedTimes')
-        //setSavedTimes(data)
-    },[])
+    
 
     // console.log('Final States:', 
     // 'countDown:',countDown, 
@@ -91,6 +110,7 @@ const App = ({ username, password }) => {
             {phase === 0 &&(
                 <StartButton 
                     setPhase={setPhase}
+                    name={userData.first_name}
                 />
             )}
 

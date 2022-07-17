@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 
-const StartButton = ({ setPhase }) => {
+const StartButton = ({ setPhase, name }) => {
 
     const pressSpace = useCallback(event => {
         if (event.code === 'Space') {
@@ -16,7 +16,7 @@ const StartButton = ({ setPhase }) => {
 
     return (
         <div id='startButton'>
-            Start
+            Welcome, {name}
         </div>
     )
 }

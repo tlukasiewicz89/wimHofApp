@@ -1,12 +1,12 @@
 import React, { useCallback, useState, useEffect } from 'react';
 
 const Timer = ({ time, setTime, timerOn, setTimeOn, setPhase, setCircleOn, setBreathingState, phase, setSavedTimes, savedTimes, round, breathIn }) => {
+
     // const [time, setTime] = useState(0);
     // const [timerOn, setTimeOn] = useState(false);
     useEffect(() => {
-        // console.log('test use effect')
+        console.log('test use effect')
         let interval = null;
-        
         if (timerOn) {
             interval = setInterval(() => {
             setTime(prevTime => prevTime + 20)

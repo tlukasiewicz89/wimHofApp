@@ -1,6 +1,7 @@
 body {
     margin: 0 25px;
     background-color: rgba(202, 202, 202, 0.419);
+    cursor: default;
 }
 @keyframes fadeInAnimation {
     0% {
@@ -25,23 +26,25 @@ nav {
   
 }
 
-#landing > a, #landing div, #signup > a {
+#landing > button, #landing div, #signup > button {
     text-decoration: none;
     font-size: 2rem;
     color: rgb(94, 94, 94);
 }
-#landing > a, #signup > a {
+#landing > button, #signup > button {
     background-color: rgba(245, 245, 220, 0.777);
-    padding: 5px 15px;
+    padding: 5px 0px;
     border-radius: 5px;
+    border: none;
     margin: 5px;
     font-size: 1rem;
-    width: 60px;
+    width: 80px;
     text-align: center;
+    cursor: pointer
 }
 
 #signup div {
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 #signuplink, #signuplink a{
@@ -50,10 +53,10 @@ nav {
     margin: 10px;
 }
 
-#signuplink a {
+a {
     color: rgba(245, 245, 220, 0.777)
 }
-#landing input , #signup input{
+input{
     padding: 0 10px;
     margin: 10px;
     height: 30px;

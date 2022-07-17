@@ -10,14 +10,14 @@ const Circle = ({ circleOn, setCircleOn, breathNumber, phase, goalBreaths, breat
             transitionTimingFunction: 'ease-out'
         },
         small: {
-            background: '#0343773d',
+            background: '#0369777e',
             // boxShadow: '5px 5px 5px #04bd57',
             transition: `${breathIn/1000}s, transform ${breathIn/1000}s`,
             transform: 'scale(1)',
             transitionTimingFunction: 'ease-in'
         },
         big : {
-            background: '#0369777e',
+            background: '#0343773d',
             // boxShadow: '5px 5px 5px #3085d6',
             transition: `${breathOut/1000}s, transform ${breathOut/1000}s`,
             transform: 'scale(.4)',
