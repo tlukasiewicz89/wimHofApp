@@ -21,6 +21,13 @@ router.post('/checkUser', breathController.checkUser, (req, res) => {
     // if username exists send back data 
     //if username doesnt exists then do an insert command
 
+    
+
+// route for saving sessions 
+router.post('/updateRecord', breathController.updateRecords, (req, res) => {
+    res.status(200).json(res.locals)
+})
+
 //route for deleting data
 
 module.exports = router;

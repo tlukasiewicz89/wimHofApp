@@ -7,9 +7,10 @@ import BreathingState from './components/BreathingState'
 import FinalHold from './components/FinalHold'
 import StartButton from './components/StartButton'
 import Description from './components/Description'
+import Records from './components/Records'
 
  
-
+let arr = [];
 const App = ({ username, password, userData, setUserData }) => {
     // useEffect(()=>{
     //     fetch('/newUser', {
@@ -25,21 +26,17 @@ const App = ({ username, password, userData, setUserData }) => {
     //       })   
     //   }, [])
     // Dynamic Variables
+    
     useEffect(() => {
         console.log('started APP, here is the data from login:', userData);
-        const timestamp = Date.now()
-        const humanReadableDateTime = new Date(timestamp).toLocaleString()
-        console.log('humanReadableDateTime', humanReadableDateTime)
-
-        const date = new Date(timestamp);
-        console.log('date', date);
-        console.log(typeof date.toLocaleDateString('en-US'));
+        
     }, [])
-    const goalBreaths = 5;
-    const goalHold = 5;
-    const breathIn = 2000;
-    const breathOut = 2000;
-    const fullyOut = 4000;
+    const goalBreaths = 1;
+    const goalHold = 1;
+    const breathIn = 1000;
+    const breathOut = 1000;
+    const fullyOut = 2000;
+    const testPhase = 0;
     
     // React Hooks
     const [countDown, setCountDown] = useState(goalHold);
@@ -48,20 +45,35 @@ const App = ({ username, password, userData, setUserData }) => {
     const [timerOn, setTimeOn] = useState(true);
     const [circleOn, setCircleOn] = useState(true)
     const [user, setUser] = useState(0);
-    const [phase, setPhase] = useState(0);
+    const [phase, setPhase] = useState(testPhase);
     const [round, setRound] = useState(1);
     const [breathNumber, setBreathNumber] = useState(0);
     const [savedTimes, setSavedTimes] = useState([])
+    const [records, setRecords] = useState([]);
+    const [showRecords, setShowRecords] = useState(false);
     
     const description = [
         'Press the spacebar to begin breathing!',
         'Breathe fully in and let go. On the last breath, breath fully out',
         'Hold for as long as you can.\n Press the spacebar to inhale and hold.',
-        `Hold for ${goalHold} seconds.\nLet go and enjoy the oxygen tingles. \n
-        Press Space for next round. \n
-        Press Return to record session.`
+        `Hold for ${goalHold} seconds.\nLet go and enjoy the oxygen tingles. \n Press Space for next round. Press Enter to record retentions and log out.
+        `
     ];
     
+    /*
+
+        data obj = [ 
+            {
+                date:
+                [
+                    {round:time}, 
+                    {round:time}, 
+                    {round:time}
+                ]
+            }
+    ]
+
+    */
 
     // console.log('Final States:', 
     // 'countDown:',countDown, 
@@ -84,16 +96,28 @@ const App = ({ username, password, userData, setUserData }) => {
     //     })
     // }, [])
     
-    const arr = [];
-    for (let i = 0; i < savedTimes.length; i++) {
-        arr.push(<div>{savedTimes[i]}</div>)
-    }
+    useEffect(()=> {
+        arr = [];
+        for (let i = 0; i < savedTimes.length; i++) {
+            
+            let ms = savedTimes[i][i + 1];
+            console.log('useEffect for Loop - savedTimes at', i, 'is:', savedTimes[i])
+    
+            let minutes = ("0" + Math.floor((ms / 60000) % 60)).slice(-2).toString();
+            let seconds = ("0" + Math.floor((ms / 1000) % 60)).slice(-2).toString();
+            let milliseconds = ("0" + ((ms / 10) % 100)).slice(-2).toString();
+            let timeFormat = `Round ${i + 1} - ${minutes}:${seconds}:${milliseconds}`
+            arr.push(<div key={i}>{timeFormat}</div>);
+            console.log('the array now looks like:', arr)
+        }
+    }, [savedTimes])
     return (
         <div id="app">
+            {phase !== 0 &&(
             <BreathingState 
                 breathingState={breathingState}
             />
-
+            )}
             {phase !== 0 &&(
                 <Circle 
                     circleOn = {circleOn}
@@ -109,8 +133,9 @@ const App = ({ username, password, userData, setUserData }) => {
 
             {phase === 0 &&(
                 <StartButton 
+                    setSavedTimes={setSavedTimes}
                     setPhase={setPhase}
-                    name={userData.first_name}
+                    name={userData[0].first_name}
                 />
             )}
 
@@ -156,20 +181,41 @@ const App = ({ username, password, userData, setUserData }) => {
                 setPhase={setPhase}
                 setTime={setTime}
                 setTimeOn={setTimeOn}
+                time={time}
                 timerOn={timerOn}
                 setBreathNumber={setBreathNumber}
                 savedTimes={savedTimes}
+                setSavedTimes={setSavedTimes}
+                round={round}
                 setRound={setRound}
+                userData={userData}
+                setUserData={setUserData}
+                setRecords={setRecords}
                 />        
             )}
             <Description 
                 description={description}
                 phase={phase}
             />
+
+
             <div id='previousTimes'> 
                 {arr} 
             </div>
-          
+            <Records 
+                userData={userData}
+                showRecords={showRecords}
+                setShowRecords={setShowRecords}
+                records={records}
+                setRecords={setRecords}
+            />
+            
+            {/* {countDown === 0 && (
+                <div id='lastInstructions'>
+                    <p>Press Space for next round.</p>
+                    <p>Press Return to record session and logout.</p>
+                </div>
+            )} */}
             
         </div>
     )

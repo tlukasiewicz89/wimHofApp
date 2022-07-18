@@ -25,7 +25,18 @@ nav {
     align-items: center;
   
 }
-
+#landing {
+    position: relative;
+}
+#landing > p {
+    color: rgba(245, 245, 220, 0.777);
+    position: absolute;
+    bottom: 200px;
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: rgba(139, 24, 24, 0.581);
+    padding: 5px 10px;
+}
 #landing > button, #landing div, #signup > button {
     text-decoration: none;
     font-size: 2rem;
@@ -81,7 +92,23 @@ nav ul {
     gap: 1rem;
 }
 
-#app, #landing, #login, #signup {
+#app {
+    background-color: #0369777e;
+    /* background-color: rgba(255, 0, 0, 0.283); */
+    /* border: 1px solid white; */
+    margin: 0 auto;
+    max-width: 650px;
+    min-height: 700px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    position: relative;
+}
+
+#landing, #login, #signup {
     background-color: #0369777e;
     /* background-color: rgba(255, 0, 0, 0.283); */
     /* border: 1px solid white; */
@@ -94,14 +121,14 @@ nav ul {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
-
 
 
 #timer {
     /* border: 1px solid white; */
     padding: 10px 20px;
-    width: 70%;
+    /* width: 70%; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -113,7 +140,7 @@ nav ul {
 #breathCounter {
     /* border: 1px solid white; */
     padding: 10px 20px;
-    width: 70%;
+    /* width: 70%; */
     font-size: 4rem;
     display: flex;
     justify-content: center;
@@ -125,12 +152,13 @@ nav ul {
 #breathingState{
     /* border: 1px solid white; */
     padding: 10px 20px;
-    width: 70%;
+    /* width: 70%; */
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: 4rem;
     height: 60px;
+    margin-top: 30px;
 }
 #circleContainer {
     /* border: 1px solid white; */
@@ -143,12 +171,13 @@ nav ul {
     border-radius: 50%;
     width: 175px;
     height: 175px;
+    /* box-shadow: 1px 5px 0px rgba(0, 128, 0, 0.269); */
 }
 
 #finalHold{
     /* border: 1px solid white; */
     padding: 10px 20px;
-    width: 70%;
+    /* width: 70%; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -159,11 +188,13 @@ nav ul {
 #startButton {
     /* border: 1px solid white; */
     padding: 10px 20px;
-    width: 70%;
+    margin-top: 200px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: 3rem;
+    /* margin-top: 395px; */
     height: 60px;
     animation: fadeInAnimation ease 3s;
     animation-iteration-count: 1;
@@ -173,7 +204,7 @@ nav ul {
 #description {
     /* border: 1px solid white; */
     padding: 10px 20px;
-    width: 70%;
+    width: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -198,8 +229,48 @@ nav ul {
     overflow: auto; */
 }
 
+#lastInstructions p {
+    display: flex;
+    justify-content: center;
+    
+}
 
+#records {
+    /* border: 1px solid white;
+    border-radius: 15px; */
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    /* position: absolute; */
+    /* top: 550px; */
+    /* background-color: #0371bf; */
 
+}
+
+.seshDiv {
+    /* border: 1px solid black; */
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(245, 245, 220, 0.777);
+    /* position: absolute; */
+}
+
+.dateDiv {
+    padding: 10px;
+}
+
+.roundDiv {
+    padding: 2px;
+}
 
 
 

@@ -22,6 +22,7 @@ export default function Landing() {
 
         {/* A <Routes> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
+            
         {(userData &&
           <App 
           userData={userData}
@@ -90,7 +91,7 @@ function Login({ username, setUsername, password, setPassword, userData, setUser
         setWrongInput(true);
       } else {
         setWrongInput(false);
-        setUserData(data[0])
+        setUserData(data)
       }
     })
   }
@@ -101,26 +102,17 @@ function Login({ username, setUsername, password, setPassword, userData, setUser
       <input onChange={updateUsername} type="text" placeholder='username' />
       <input onChange={updatePassword} type="password" placeholder='password' />
       <button onClick={clickHandler}>Login</button>
-      {(wrongInput && 
-        <div>wrong usernam and password combo</div>
-      )}
-      {/* {(status === 'hello' &&
-        <Link to="/App">Login</Link>
-      )}
-      {(status !== 'hello' &&
-        <Link to="/">Login</Link>
-      )} */}
-
-    {/* // uncomment below to DEMO */}
-    {/* <Link to="/App">Login</Link> */}
-
       
+     
       <div id='signuplink'>
         Don't have an account?  
         <Link to="/SignUp">
           Sign up
         </Link>
       </div>
+      {(wrongInput && 
+        <p>Invalid Credentials</p>
+      )}
     </div> 
   )
 }
@@ -161,8 +153,8 @@ function SignUp({ username, setUsername, password, setPassword }) {
   }
   return (
     <div id='signup'>
-      {/* <div>Start Breathing</div>
-      <input type="text" placeholder='first name' required />
+      <div>Get Started</div>
+      {/* <input type="text" placeholder='first name' required />
       <input type="text" placeholder='last name' required /> */}
       <input onChange={updateUsername} type="text" placeholder='username' required />
       <input onChange={updatePassword} type="password" placeholder='password' required />

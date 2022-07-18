@@ -27,22 +27,21 @@ const Timer = ({ time, setTime, timerOn, setTimeOn, setPhase, setCircleOn, setBr
         if (event.code === 'Space') {
             console.log('Space pressed');
             console.log('saved time as:', time)
-            console.log('saveTimes state:', savedTimes)
+            // console.log('saveTimes state:', savedTimes)
             if (phase === 2) { 
                 console.log('phase', phase)
                 setTimeOn(false);
-                // push in saved time into user data store
 
-                let minutes = ("0" + Math.floor((time / 60000) % 60)).slice(-2).toString();
-                let seconds = ("0" + Math.floor((time / 1000) % 60)).slice(-2).toString();
-                let milliseconds = ("0" + ((time / 10) % 100)).slice(-2).toString();
-                let timeFormat = `Round ${round} - ${minutes}:${seconds}:${milliseconds}`
+                // append to the savedTime state
+                let newObj = {}
+                newObj[round] = time;
+                setSavedTimes(oldArr => [...oldArr, newObj]);
 
-                setSavedTimes(oldArr => [...oldArr, timeFormat]);
-
+                //reset the circle
                 setCircleOn(false);
                 setBreathingState('Fully In');
-                console.log('savedTimes', savedTimes)  
+                
+                // console.log('savedTimes', savedTimes)  
                 setTimeout(() => {
 
                     setPhase(3)

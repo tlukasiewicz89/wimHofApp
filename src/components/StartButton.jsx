@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 
-const StartButton = ({ setPhase, name }) => {
+const StartButton = ({ setPhase, name, setSavedTimes }) => {
 
     const pressSpace = useCallback(event => {
         if (event.code === 'Space') {
@@ -8,6 +8,10 @@ const StartButton = ({ setPhase, name }) => {
             setPhase(1);
           }
     })
+
+    useEffect(() => {
+        setSavedTimes([]);
+    }, [])
 
     useEffect(()=>{
         document.addEventListener('keyup', pressSpace);
