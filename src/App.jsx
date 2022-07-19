@@ -31,11 +31,11 @@ const App = ({ username, password, userData, setUserData }) => {
         console.log('started APP, here is the data from login:', userData);
         
     }, [])
-    const goalBreaths = 1;
-    const goalHold = 1;
-    const breathIn = 1000;
-    const breathOut = 1000;
-    const fullyOut = 2000;
+    const goalBreaths = 25;
+    const goalHold = 15;
+    const breathIn = 2000;
+    const breathOut = 1500;
+    const fullyOut = 4000;
     const testPhase = 0;
     
     // React Hooks
@@ -209,13 +209,6 @@ const App = ({ username, password, userData, setUserData }) => {
                 records={records}
                 setRecords={setRecords}
             />
-            
-            {/* {countDown === 0 && (
-                <div id='lastInstructions'>
-                    <p>Press Space for next round.</p>
-                    <p>Press Return to record session and logout.</p>
-                </div>
-            )} */}
             
         </div>
     )

@@ -123,8 +123,8 @@ function Login({ username, setUsername, password, setPassword, userData, setUser
 
 
 function SignUp({ username, setUsername, password, setPassword }) {
-
-  const [status, setStatus] = useState('sorry');
+  const [first, setFirst] = useState('')
+  const [last, setLast] = useState('')
 
   // useEffect(()=>{
   //   fetch('/checkUserName', {
@@ -142,6 +142,15 @@ function SignUp({ username, setUsername, password, setPassword }) {
   //   })
   // }, [username, password])
 
+  function updateFirst (event) {
+    setFirst(event.target.value)
+    console.log(first)
+  }
+ 
+  function updateLast (event) {
+    setLast(event.target.value)
+    console.log(last)
+  }
   function updateUsername (event) {
     setUsername(event.target.value)
     console.log(username)
@@ -151,14 +160,19 @@ function SignUp({ username, setUsername, password, setPassword }) {
     setPassword(event.target.value)
     console.log(password)
   }
+
+  const clickHandler = () => {
+    
+  }
+
   return (
     <div id='signup'>
       <div>Get Started</div>
-      {/* <input type="text" placeholder='first name' required />
-      <input type="text" placeholder='last name' required /> */}
+      <input onChange={updateFirst} type="text" placeholder='first name' required />
+      <input onChange={updateLast} type="text" placeholder='last name' required />
       <input onChange={updateUsername} type="text" placeholder='username' required />
       <input onChange={updatePassword} type="password" placeholder='password' required />
-      <button>Sign up</button>
+      <button onClick={clickHandler}>Sign up</button>
       {/* {(status === 'hello' &&
         <Link to="/App">Sign Up</Link>
       )}

@@ -20,7 +20,7 @@ const StartButton = ({ setPhase, name, setSavedTimes }) => {
 
     return (
         <div id='startButton'>
-            Welcome, {name}
+            Welcome, {name.slice(0,1).toUpperCase() + name.slice(1).toLowerCase()}
         </div>
     )
 }

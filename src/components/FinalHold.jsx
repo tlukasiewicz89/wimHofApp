@@ -76,12 +76,12 @@ const FinalHold = ({ setCircleOn, circleOn, countDown, setCountDown, setBreathin
             setTime(0);
             setTimeOn(true);
             setBreathNumber(0);
-            setPhase(1);
+            setPhase(0);
             setCircleOn(false);
             setRound(0);
             setSavedTimes([]);
             setRecords([])
-            // setUserData('');
+            setUserData('');
         }
     })
 
