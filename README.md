@@ -40,7 +40,6 @@ When done with inital breaths, you will breath out and hold for as long as you c
 Once you are done holding, take a big breath in and hold for 10 seconds
 
 ### Step 5
-Press spacebar to start another round;
-or press Enter to record session and log out.
+Press spacebar to start another round or press Enter to record session and log out.
 
 ![](https://github.com/tlukasiewicz89/wimHofApp/blob/main/public/intoPartThreeGIFFY.gif)
