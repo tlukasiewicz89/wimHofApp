@@ -19,6 +19,7 @@ const Records = ({ userData, setShowRecords, showRecords, records, setRecords })
                 console.log('sesh[key]', sesh[key])
                 // iterate over the rounds array
                 sesh[key].forEach((obj, index )=> {
+                    // ms = milliseconds
                     let ms = obj[index+1]
                     console.log('obj', obj);
                     console.log('time is obj[index+1]', obj[index+1]);
