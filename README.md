@@ -28,3 +28,18 @@ Log in or create an account
 ### Step 2
 Press the spacebar to start breathing!
 ![](https://github.com/tlukasiewicz89/wimHofApp/blob/main/public/justBreatheIntroGIFFY.gif)
+
+
+### Step 3
+When done with inital breaths, you will breath out and hold for as logn as you can
+
+![](https://github.com/tlukasiewicz89/wimHofApp/blob/main/public/introPartTwoGIFFY.gif)
+
+
+### Step 4
+Once you are done holding, take a big breath in and hold for 10 seconds
+
+### Step 5
+Press spacebar to start another round!
+
+![](https://github.com/tlukasiewicz89/wimHofApp/blob/main/public/intoPartThreeGIFFY.gif)
