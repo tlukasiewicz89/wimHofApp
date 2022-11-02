@@ -3,7 +3,7 @@
 **justBreathe** is a custom breath work application inspired by the Wim Hof method. It guides you through dynamic breathing sessions, 
 allowing for custom retention times. It also lets you save your rounds and view them.
 
-## Run justBreathe using CLI
+## Run justBreathe in development using CLI
 
 - **Fork** and **Clone** Repository.
 - Open project directory
