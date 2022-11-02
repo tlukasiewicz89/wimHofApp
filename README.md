@@ -1,9 +1,9 @@
-# wimHofApp
+# wimHofApp repo
 
-**Just Breathe** is a custom breath work application inspired by the Wim Hof method. It guides you through dynamic breathing sessions, 
+**justBreathe** is a custom breath work application inspired by the Wim Hof method. It guides you through dynamic breathing sessions, 
 allowing for custom retention times. It also lets you save your rounds and view them.
 
-## Run Just Breathe using CLI
+## Run justBreathe using CLI
 
 - **Fork** and **Clone** Repository.
 - Open project directory
@@ -19,3 +19,12 @@ npm install
 npm run dev
 ```
 
+## How to use justBreathe
+
+
+### Step 1
+Log in or create an account
+
+### Step 2
+Press the spacebar to start breathing!
+![](https://github.com/tlukasiewicz89/wimHofApp/blob/main/public/justBreatheIntroGIFFY.gif)
