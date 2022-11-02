@@ -31,8 +31,8 @@ const App = ({ username, password, userData, setUserData }) => {
         console.log('started APP, here is the data from login:', userData);
         
     }, [])
-    const goalBreaths = 25;
-    const goalHold = 15;
+    const goalBreaths = 20;
+    const goalHold = 10;
     const breathIn = 2000;
     const breathOut = 1500;
     const fullyOut = 4000;

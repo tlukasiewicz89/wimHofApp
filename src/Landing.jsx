@@ -196,7 +196,7 @@ function Nav() {
   return (
 
     <nav>
-      <h1>Welcome to Wim Hof Beta version 0.1.9</h1>
+      <h1>Welcome to just Breathe beta version 0.1.99</h1>
       <ul>
         <li>
           <Link to="/">Home</Link>
