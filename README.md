@@ -26,7 +26,7 @@ npm run dev
 - Log in or create an account
 - Press the spacebar to start breathing!
 
-![](https://github.com/tlukasiewicz89/wimHofApp/blob/main/public/justBreatheIntroGIFFY.gif)
+![](https://github.com/tlukasiewicz89/wimHofApp/blob/main/public/justBreatheIntro.gif)
 
 
 ### Step 2
