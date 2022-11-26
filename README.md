@@ -1,7 +1,7 @@
 # wimHofApp repo
 
-**justBreathe** is a custom breath work application inspired by the Wim Hof method. It guides you through dynamic breathing sessions, 
-allowing for custom retention times. It also lets you save your rounds and view them.
+**justBreathe** is a custom breath work application inspired by the Wim Hof method. It guides you through a dynamic breathing session, 
+allowing for custom retention times. It also lets you save your rounds and view them after you are done.
 
 ## Run justBreathe in development using CLI
 
